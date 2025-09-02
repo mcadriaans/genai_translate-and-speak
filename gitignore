@@ -1,0 +1,29 @@
+
+# Environment variables
+.env
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
+
+# Streamlit temporary files
+.streamlit/
+
+# IDE-specific files (e.g., VS Code)
+.vscode/
+
+# Operating System files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Temporary files
+*.tmp
+*.log
+
+# Ignore all Python files
+*.py
+
+# But keep translator_speak_app.py
+!translator_speak_app.py
