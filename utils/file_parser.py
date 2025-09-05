@@ -1,6 +1,6 @@
 # utils/file_parser.py
 
-import tempfile
+
 import pytesseract
 from PyPDF2 import PdfReader
 from pdf2image import convert_from_bytes
@@ -36,8 +36,10 @@ def extract_text_from_file(uploaded_file):
 
     elif file_type in ['png', 'jpg', 'jpeg']:
         print("Performing OCR on image file.")
+        uploaded_file.seek(0) # Reset file pointer to the beginning
         image = Image.open(uploaded_file)
-        return pytesseract.image_to_string(image)
+        text = pytesseract.image_to_string(image)
+        return text if text.strip() else "No text found in the image."
 
     else:
         return "Unsupported file type."
