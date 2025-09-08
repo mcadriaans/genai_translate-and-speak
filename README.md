@@ -88,24 +88,23 @@ For a comprehensive understanding of the project's design, architectural decisio
 
 ## 📁Project Structure 
 ```
-translate-and-speak/                     # Root directory of the Translate & Speak application
-├── assets/                              # Folder for static resources used by the app
+translate-and-speak/                 # Root directory of the Translate & Speak application
+├── assets/                          # Folder for static resources used by the app
     └── images   
-│   └── sample_files/                    # Contains example input files for testing OCR and translation (PDFs, DOCX, TXT)
-├── ml_models/                           # Stores machine learning models used by the app
-│   └── easyocr/                         # EasyOCR-specific model files for text detection and recognition
-        └── craft_mlt_25k.pth            # Pretrained model for detecting text regions in images (CRAFT model)
-        └── english_g2.pth               # Pretrained model for recognizing English characters (G2 model)
-├── utils/                               # Utility scripts and helper functions to support core app logic
-│   └── file_parser.py                   # Handles file parsing and text extraction from uploaded documents
-├── .gitignore                           # Tells Git which files/folders to ignore (e.g., .env, venv)
-├── README.md                            # Main documentation file: explains what the app does and how to use it
-├── packages.txt                         # Optional list of system-level packages needed for deployment platform
-├── requirements.txt                     # Lists all Python libraries required to run the app (used for pip install)
-├── runtime.txt                          # Specifies the Python version for deployment platform
-├── translation_speak_app.py             # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
-└── documentation.pdf                    # Formal project documentation
-
+│   └── sample_files/                # Contains example input files for testing OCR and translation (PDFs, DOCX, TXT)
+├── ml_models/                       # Stores machine learning models used by the app
+│   └── easyocr/                     # EasyOCR-specific model files for text detection and recognition
+        └── craft_mlt_25k.pth        # Pretrained model for detecting text regions in images (CRAFT model)
+        └── english_g2.pth           # Pretrained model for recognizing English characters (G2 model)
+├── utils/                           # Utility scripts and helper functions to support core app logic
+│   └── file_parser.py               # Handles file parsing and text extraction from uploaded documents
+├── .gitignore                       # Tells Git which files/folders to ignore (e.g., .env, venv)
+├── README.md                        # Main documentation file: explains what the app does and how to use it
+├── packages.txt                     # Optional list of system-level packages needed for deployment platform
+├── requirements.txt                 # Lists all Python libraries required to run the app (used for pip install)
+├── runtime.txt                      # Specifies the Python version for deployment platform
+├── translation_speak_app.py         # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
+└── documentation.pdf                # Formal project documentation
 ```
 ## ⚠️Important Considerations and Limitations
 * **Input Language**: Currently, the application processes **English text only** for translation. This was a deliberate design choice for complexity management and consistent quality.
