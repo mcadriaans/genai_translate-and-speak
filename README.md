@@ -4,6 +4,7 @@
 [🚀 Live Demo (Click Here!)](https://translate-and-speak-khsxqerqw2gb6puy9rizxe.streamlit.app/)
 
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
+
 Simply input your English text (or upload a file!), choose your target language, and receive both the translated text and a downloadable audio file.
 
 ![App Screenshot](assets/images/app_screenshot.png)
@@ -14,6 +15,11 @@ Follow these steps to set up and run the application in you local machine
 ### 1. 📝Prerequisites
 * Python 3.10
 * Python package installer `pip`
+* **Poppler Utilities** required for PDF processing.
+    *   **macOS (Homebrew):** `brew install poppler`
+    *   **Linux (apt-get):** `sudo apt-get install poppler-utils`
+    *   **Windows:** Download from [here](https://poppler.freedesktop.org/) Ensure it's added to your PATH.
+
 
 ### 2. 🧬Clone the repository
 
@@ -46,6 +52,9 @@ Install all neccessary Python packages:
 ```bash
 pip install -r requirements.txt
 ```
+❗Note: 
+
+EasyOCR models (craft_mlt_25k.pth, english_g2.pth) are included in the ml_models/easyocr directory. Ensure these are present for OCR functionality.
 
 ### 5. 🔑Configure Your Gemini API Key
 This application requires a Google Gemini API key.
