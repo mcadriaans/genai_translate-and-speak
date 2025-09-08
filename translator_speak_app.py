@@ -125,7 +125,7 @@ with st.sidebar:
         "Bengali 🇧🇩": "bn",
         "Chinese (Simplified) 🇨🇳": "zh-CN",
         "Dutch 🇳🇱": "nl",
-        "English 🇬🇧 ": "en",
+        #"English 🇬🇧 ": "en",
         "French 🇫🇷": "fr",
         "German 🇩🇪": "de",
         "Greek 🇬🇷": "el",
