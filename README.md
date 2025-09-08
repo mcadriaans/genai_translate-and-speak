@@ -52,9 +52,7 @@ Install all neccessary Python packages:
 ```bash
 pip install -r requirements.txt
 ```
-❗Note: 
-
-EasyOCR models (craft_mlt_25k.pth, english_g2.pth) are included in the ml_models/easyocr directory. Ensure these are present for OCR functionality.
+❗Note: EasyOCR models (craft_mlt_25k.pth, english_g2.pth) are included in the ml_models/easyocr directory. Ensure these are present for OCR functionality.
 
 ### 5. 🔑Configure Your Gemini API Key
 This application requires a Google Gemini API key.
@@ -115,6 +113,8 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 * **File Size**: Maximum upload size is 200MB.
 * **No Reak-Time Preview**: Translation and audio generation automatically occurs after text is submitted.
 * **No GPU Support**: If deploying on Streamlit Commutity Cloud. This can lead to slower inference times as computational demands grow with more complex/larger tasks.
+
+## 🔮 Future Enhancements
 
 ## 🤝Contributing
 Contributions are welcome! If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request.
