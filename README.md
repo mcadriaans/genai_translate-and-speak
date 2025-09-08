@@ -119,8 +119,7 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 ## 🤝Contributing
 Contributions are welcome! If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request.
 
-🙋‍♀️ Author
-Created with ❤️ by Michéle
+🙋‍♀️ Author: Created with 💜 by Michéle
 
 ## 📜License
 This project is licensed under the MIT License.
