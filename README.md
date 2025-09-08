@@ -1,8 +1,13 @@
-# 🌍🔊Multilingual Text-to-Speech Web App for English Input (Streamlit, Gemini API, gTTS)
+# 🌍🔊Translate and Speak : Multilingual for English Input
+***Built with Streamlit, Gemini API, gTTS and OCR file support.***
+
+[🚀 Live Demo (Click Here!)](https://translate-and-speak-khsxqerqw2gb6puy9rizxe.streamlit.app/)
 
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
+
 Simply input your English text (or upload a file!), choose your target language, and receive both the translated text and a downloadable audio file.
 
+![App Screenshot](assets/images/app_screenshot.png)
 ## 🧭Getting Started
 
 Follow these steps to set up and run the application in you local machine
@@ -10,6 +15,11 @@ Follow these steps to set up and run the application in you local machine
 ### 1. 📝Prerequisites
 * Python 3.10
 * Python package installer `pip`
+* **Poppler Utilities** required for PDF processing.
+    *   **macOS (Homebrew):** `brew install poppler`
+    *   **Linux (apt-get):** `sudo apt-get install poppler-utils`
+    *   **Windows:** Download from [here](https://poppler.freedesktop.org/) Ensure it's added to your PATH.
+
 
 ### 2. 🧬Clone the repository
 
@@ -42,6 +52,7 @@ Install all neccessary Python packages:
 ```bash
 pip install -r requirements.txt
 ```
+❗Note: EasyOCR models (craft_mlt_25k.pth, english_g2.pth) are included in the ml_models/easyocr directory. Ensure these are present for OCR functionality.
 
 ### 5. 🔑Configure Your Gemini API Key
 This application requires a Google Gemini API key.
@@ -92,7 +103,7 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 ├── packages.txt                         # Optional list of system-level packages needed for deployment platform
 ├── requirements.txt                     # Lists all Python libraries required to run the app (used for pip install)
 ├── runtime.txt                          # Specifies the Python version for deployment platform
-├── translation_apeak_app.py             # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
+├── translation_speak_app.py             # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
 └── documentation.pdf                    # Formal project documentation
 
 ```
@@ -103,11 +114,12 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 * **No Reak-Time Preview**: Translation and audio generation automatically occurs after text is submitted.
 * **No GPU Support**: If deploying on Streamlit Commutity Cloud. This can lead to slower inference times as computational demands grow with more complex/larger tasks.
 
+
+
 ## 🤝Contributing
 Contributions are welcome! If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request.
 
-🙋‍♀️ Author
-Created with ❤️ by Michéle
+🙋‍♀️ Author: Created with 💜 by Michéle
 
 ## 📜License
 This project is licensed under the MIT License.
