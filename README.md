@@ -103,7 +103,7 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 ├── packages.txt                         # Optional list of system-level packages needed for deployment platform
 ├── requirements.txt                     # Lists all Python libraries required to run the app (used for pip install)
 ├── runtime.txt                          # Specifies the Python version for deployment platform
-├── translation_apeak_app.py             # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
+├── translation_speak_app.py             # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
 └── documentation.pdf                    # Formal project documentation
 
 ```
@@ -114,7 +114,7 @@ translate-and-speak/                     # Root directory of the Translate & Spe
 * **No Reak-Time Preview**: Translation and audio generation automatically occurs after text is submitted.
 * **No GPU Support**: If deploying on Streamlit Commutity Cloud. This can lead to slower inference times as computational demands grow with more complex/larger tasks.
 
-## 🔮 Future Enhancements
+
 
 ## 🤝Contributing
 Contributions are welcome! If you have suggestions, bug reports, or want to contribute code, please feel free to open an issue or submit a pull request.
