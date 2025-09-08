@@ -1,8 +1,12 @@
-# 🌍🔊Multilingual Text-to-Speech Web App for English Input (Streamlit, Gemini API, gTTS)
+# 🌍🔊Translate and Speak : Multilingual for English Input
+***Built with Streamlit, Gemini API, gTTS and OCR file support.***
+
+[🚀 Live Demo (Click Here!)](https://translate-and-speak-khsxqerqw2gb6puy9rizxe.streamlit.app/)
 
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
 Simply input your English text (or upload a file!), choose your target language, and receive both the translated text and a downloadable audio file.
 
+![App Screenshot](assets/images/app_screenshot.png)
 ## 🧭Getting Started
 
 Follow these steps to set up and run the application in you local machine
