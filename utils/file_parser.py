@@ -78,7 +78,7 @@ def extract_text_from_file(uploaded_file):
 
     elif file_type == 'txt':
         uploaded_file.seek(0)                            # Ensure the file pointer is at the start
-        return uploaded_file.getvalue().decode("utf-8")  # Decode bytes to string
+        return uploaded_file.getvalue().decode("latin1")  # Decode bytes to string
 
     elif file_type == 'csv':
         uploaded_file.seek(0)                           # Ensure the file pointer is at the start

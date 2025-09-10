@@ -187,7 +187,7 @@ if st.button("Translate"):
                     with open(audio_file, "rb") as f:
                         st.download_button("Download Audio", f, file_name="translated_audio.mp3", mime="audio/mp3")
                 else:
-                    st.error(f"Unfortunately, text-to-speech is not available for {selected_language} at this time. You can still translate the text, but to hear it spoken, please choose a different language from the dropdown.")
+                    st.error(f"Text-to-speech is currently unavailable for {selected_language}. Please select a different language to hear the spoken translation.")
         except Exception as e:
             st.error(f"An error occurred: {e}") # Display the error message to the user
             
