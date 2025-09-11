@@ -111,7 +111,7 @@ st.markdown(
 
 # Text input or file upload
 user_input = st.text_area("Enter text to translate:", placeholder="Type or paste your text here...")
-uploaded_file = st.file_uploader("Or upload a file (PDF, TXT, CSV, XLSX):", type=["pdf", "txt", "csv", "xlsx", "png", "jpg", "jpeg"])
+uploaded_file = st.file_uploader("Or upload a file (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG):", type=["pdf", "txt", "csv", "xlsx", "png", "jpg", "jpeg"])
 
 # Language selection
 with st.sidebar:
