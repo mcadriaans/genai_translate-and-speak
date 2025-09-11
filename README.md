@@ -103,7 +103,7 @@ translate-and-speak/                 # Root directory of the Translate & Speak a
 ├── packages.txt                     # Optional list of system-level packages needed for deployment platform
 ├── requirements.txt                 # Lists all Python libraries required to run the app (used for pip install)
 ├── runtime.txt                      # Specifies the Python version for deployment platform
-├── translation_speak_app.py         # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
+├── translator_speak_app.py         # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
 └── documentation.pdf                # Formal project documentation
 ```
 ## ⚠️Important Considerations and Limitations
