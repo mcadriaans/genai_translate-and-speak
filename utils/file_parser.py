@@ -102,4 +102,4 @@ def extract_text_from_file(uploaded_file):
         return text if text.strip() else "No text found in the image."
 
     else:
-        return "Unsupported file type. Please upload a PDF, TXT, CSV, XLSX, PNG, or JPG."
+        return "Unsupported file type. Please upload a PDF, TXT, CSV, XLSX, PNG,JPG or JPEG."
