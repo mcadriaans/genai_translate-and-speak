@@ -6,20 +6,43 @@ import google.generativeai as genai
 from gtts import gTTS
 import  tempfile
 from utils.file_parser import extract_text_from_file
+<<<<<<< HEAD
+from langdetect import detect    
+import re  
+
+
+## Set up Google Generative AI API key
+=======
 from langdetect import detect
 
 
 # Set up Google Generative AI API key
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 load_dotenv()
 API_KEY = os.getenv("GOOGLE_API_KEY")
 print("Loaded API Key:", "API Key found" if API_KEY else "No API Key found")
 genai.configure(api_key=API_KEY)
+<<<<<<< HEAD
+
+
+## Configure model
+## List available models (for debugging purposes)
+
+#for model in genai.list_models():
+#    print(model.name, model.supported_generation_methods)
+model_name = "gemini-2.0-flash-lite"
+model = genai.GenerativeModel(model_name)
+
+
+## Function to translate text using Google Generative AI
+=======
 # Configure model
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 
 # Function to translate text using Google Generative AI
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 def translate_text(text, target_language):
     try:
         system_message = "You are a helpful assistant that translates text."
@@ -27,6 +50,22 @@ def translate_text(text, target_language):
         response = model.generate_content(prompt)
         return response.text.strip()
     except Exception as e:
+<<<<<<< HEAD
+        error_message = str(e)
+        match = re.search(r"404 models/", error_message)
+        if match:
+            st.error(f"The model {model_name} could not be found. It may have been deprecated or is unsupported in the current API version. Please select a newer model.")
+            st.info("Call `list_models()` to view available options.")
+            st.stop()
+        elif "quota" in error_message.lower() or "exceeded" in error_message.lower(): # Check for quota exhaustion
+            st.error("Translation failed due to API quota exhaustion. Please wait or upgrade your plan to continue.")
+            st.info("Check your Google Cloud Console for quota details.")
+            
+        return st.error("Translation failed. Please try again or check the input.")
+
+  
+## Function to convert text to speech
+=======
 
          # Log the error for debugging
         print(f"[Translation Error] Failed to translate text to '{target_language}': {e}")
@@ -38,6 +77,7 @@ def translate_text(text, target_language):
 
   
 # Function to convert text to speech
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 def text_to_speech(text, language="en"):
     try:
         tts = gTTS(text=text, lang=language)
@@ -49,10 +89,17 @@ def text_to_speech(text, language="en"):
         return None
     
 
+<<<<<<< HEAD
+## Set page configurations
+st.set_page_config(page_title="Translator and Text-to-Speech App", page_icon="🌐", layout="centered")
+
+## Custom CSS for better appearance
+=======
 # Set page configurations
 st.set_page_config(page_title="Translator and Text-to-Speech App", page_icon="🌐", layout="centered")
 
 # Custom CSS for better appearance
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 st.markdown("""
     <style>
     /* Change the top bar background */
@@ -96,24 +143,40 @@ st.markdown("""
     """, unsafe_allow_html=True)
     
 
+<<<<<<< HEAD
+## App title and description
+=======
 # App title and description
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 st.markdown(
     "<h1 style='font-size:30px;'>🌍 Google Gemini Translator & Text-to-Speech</h1>",
     unsafe_allow_html=True
 )
 
+<<<<<<< HEAD
+## App description
+=======
 # App description
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 st.markdown(
     "<p style='color:#E65C4F; font-style:italic; font-weight:bold; text-align:center;'>Effortlessly translate English text into your chosen language and hear it spoken aloud.</p>",
     unsafe_allow_html=True
 )
 
 
+<<<<<<< HEAD
+## Text input or file upload
+user_input = st.text_area("Enter text to translate:", placeholder="Type or paste your text here...")
+uploaded_file = st.file_uploader("Or upload a file (PDF, TXT, CSV, XLSX):", type=["pdf", "txt", "csv", "xlsx", "png", "jpg", "jpeg"])
+
+## Language selection
+=======
 # Text input or file upload
 user_input = st.text_area("Enter text to translate:", placeholder="Type or paste your text here...")
 uploaded_file = st.file_uploader("Or upload a file (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG):", type=["pdf", "txt", "csv", "xlsx", "png", "jpg", "jpeg"])
 
 # Language selection
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
 with st.sidebar:
     # Add vertical space
     st.markdown("<br><br>", unsafe_allow_html=True)
@@ -146,6 +209,21 @@ with st.sidebar:
         "Zulu 🇿🇦": "zu"
     }
 
+<<<<<<< HEAD
+    ## Language selection dropdown
+    selected_language = st.selectbox("🌐 Select Language",options=list(language.keys()))
+
+## Translate button
+if st.button("Translate"):
+    if uploaded_file is not None:
+      ## Extract text from uploaded file
+      user_input = extract_text_from_file(uploaded_file)
+    else:
+      user_input = user_input 
+      print(user_input)
+
+    ## Validate user input
+=======
     # Language selection dropdown
     selected_language = st.selectbox("🌐 Select Language",options=list(language.keys()))
 
@@ -158,11 +236,29 @@ if st.button("Translate"):
       user_input = user_input 
 
     # Validate user input
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
     if not user_input.strip():
         print(user_input)
         st.error("No input detected. Please type something or upload a file.")
     else:
         try:
+<<<<<<< HEAD
+            if len(user_input) < 30:
+                st.warning("Input too short for reliable language detection. Please enter a longer English sentence..")
+                st.stop() # Stop further execution
+            else:
+                detected_lang = detect(user_input)
+                print(f"Detected language: {detected_lang}")
+                if detected_lang != 'en':
+                    st.error("Translation only works with English input. Please switch your text to English and try again.")
+                    st.stop() # Stop further execution
+                else:
+                 ## Translate text
+                    with st.spinner("Translating...🔤"):
+                        translated_text = translate_text(user_input, selected_language)
+                        st.subheader(f"Translation to {selected_language}:")
+                        st.markdown(f"""
+=======
             # Detect language of the input text
             detected_language = detect(user_input)
             if detected_language != 'en':
@@ -174,20 +270,32 @@ if st.button("Translate"):
                     translated_text = translate_text(user_input, selected_language)
                 st.subheader(f"Translation to {selected_language}:")
                 st.markdown(f"""
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
                 <div style="background-color:#F0F0F0; color:#333333; padding:15px; border-radius:8px; font-size:16px;">
                 {translated_text}
                 </div>
                 """, unsafe_allow_html=True)
 
+<<<<<<< HEAD
+                ## Convert translated text to speech
+                with st.spinner("Generating audio...🔊"):
+                    audio_file = text_to_speech(translated_text, language[selected_language])
+                    st.subheader(f"Text-to-Speech in {selected_language}:")
+=======
                 # Convert translated text to speech
                 with st.spinner("Generating audio...🔊"):
                     audio_file = text_to_speech(translated_text, language[selected_language])
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
                 if audio_file:
                     st.audio(audio_file, format="audio/mp3")
                     with open(audio_file, "rb") as f:
                         st.download_button("Download Audio", f, file_name="translated_audio.mp3", mime="audio/mp3")
                 else:
+<<<<<<< HEAD
+                    st.error(f"Unfortunately, text-to-speech is not available for {selected_language} at this time. You can still translate the text, but to hear it spoken, please choose a different language from the dropdown.")
+=======
                     st.error(f"Text-to-speech is currently unavailable for {selected_language}. Please select a different language to hear the spoken translation.")
+>>>>>>> 1f5d2719040b7b9e87822e9c88ff37fa091f0800
         except Exception as e:
             st.error(f"An error occurred: {e}") # Display the error message to the user
             
