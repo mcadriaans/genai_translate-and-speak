@@ -1,7 +1,7 @@
 # 🌍🔊Translate and Speak : Multilingual for English Input
 ***Built with Streamlit, Gemini API, gTTS and OCR file support.***
 
-[🚀 Live Demo (Click Here!)](https://translate-and-speak-khsxqerqw2gb6puy9rizxe.streamlit.app/)
+[🚀 Live Demo (Click Here!)](https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/)
 
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
 
