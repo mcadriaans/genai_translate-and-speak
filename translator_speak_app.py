@@ -27,7 +27,6 @@ model = genai.GenerativeModel(model_name)
 ## Function to translate text using Google Generative AI
 def translate_text(text, target_language):
     try:
-        print("are you here?")
         system_message = "You are a helpful assistant that translates text."
         prompt = f"{system_message}\n\nTranslate the following text to {target_language}.Provide the translation only:\n\n{text}"
         response = model.generate_content(prompt)
@@ -181,7 +180,7 @@ if st.button("Translate"):
                 st.stop() # Stop further execution
             else:
                 detected_lang = detect(user_input)
-                print(f"Detected language: {detected_lang}")
+                #print(f"Detected language: {detected_lang}")
                 if detected_lang != 'en':
                     st.error("Translation only works with English input. Please switch your text to English and try again.")
                     st.stop() # Stop further execution
