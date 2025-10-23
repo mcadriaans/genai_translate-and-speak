@@ -101,10 +101,11 @@ translate-and-speak/                 # Root directory of the Translate & Speak a
 ├── .gitignore                       # Tells Git which files/folders to ignore (e.g., .env, venv)
 ├── README.md                        # Main documentation file: explains what the app does and how to use it
 ├── packages.txt                     # Optional list of system-level packages needed for deployment platform
+├── project_guide.pdf                # Comprehensive document covering design, setup, features, challenges, and deployment
 ├── requirements.txt                 # Lists all Python libraries required to run the app (used for pip install)
 ├── runtime.txt                      # Specifies the Python version for deployment platform
-├── translator_speak_app.py         # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
-└── documentation.pdf                # Formal project documentation
+└──translator_speak_app.py           # The main Streamlit app script: manages UI, file upload, OCR, translation, and speech
+ 
 ```
 ## ⚠️Important Considerations and Limitations
 * **Input Language**: Currently, the application processes **English text only** for translation. This was a deliberate design choice for complexity management and consistent quality.
