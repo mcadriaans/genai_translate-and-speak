@@ -1,8 +1,8 @@
 # 🌍🔊Translate and Speak : Multilingual for English Input
 ***Built with Streamlit, Gemini API, gTTS and OCR file support.***
 
-[🚀 Live Demo (Click Here!)](https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/)
-
+[🚀 Live Demo (Click Here!)](https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/) **Only accessible while API KEY is valid**
+ 
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
 
 Simply input your English text (or upload a file!), choose your target language, and receive both the translated text and a downloadable audio file.
