@@ -31,10 +31,10 @@ git clone https://github.com/mcadriaans/translate-and-speak.git
 ### 3. ⚙️Set Up a Virtual Environment
 It's best practice to use a virtual environment.
 
-<b>For Windows (Powershell)</b>
-```bash
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+<b>For Windows (cmd)</b>
+```cmd
+uv venv venv
+.\venv\Scripts\activate
 ```
 (If you encounter script execution issues, you might need to run:
 ```bash
@@ -49,8 +49,8 @@ source venv/bin/activate
 
 ### 4. 📦Install Dependencies
 Install all neccessary Python packages:
-```bash
-pip install -r requirements.txt
+```cmd
+uv pip install -r requirements.txt
 ```
 ❗Note: EasyOCR models (craft_mlt_25k.pth, english_g2.pth) are included in the ml_models/easyocr directory. Ensure these are present for OCR functionality.
 
@@ -65,9 +65,9 @@ GOOGLE_API_KEY = your_api_key_here
 Replace your_api_key_here with you actual key.
 
 ### 6. 🚀Launch the Application
-Activate the virtual enviroment, configure the API key and then run the application:
-```bash
-python -m streamlit run translator_app.py
+Activate the virtual enviroment, configure the API key and then run the application in cmd:
+```cmd
+streamlit run translator_app.py
 ```
 Your default web browser will open the application, ready for use.
 
