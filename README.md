@@ -1,7 +1,18 @@
 # 🌍🔊Translate and Speak : Multilingual for English Input
 ***Built with Streamlit, Gemini API, gTTS and OCR file support.***
 
-[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)&nbsp;&nbsp;
+![Streamlit](https://img.shields.io/badge/Streamlit-1.49.0-FF4B4B.svg)&nbsp;&nbsp;
+![GoogleAI](https://img.shields.io/badge/Google_Generative_AI-0.8.0-orange.svg)&nbsp;&nbsp;
+![PyTorch](https://img.shields.io/badge/PyTorch-2.2.0-EE4C2C.svg)&nbsp;&nbsp;
+![Pandas](https://img.shields.io/badge/Pandas-2.3.2-150458.svg)&nbsp;&nbsp;
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+
+
+
+
+
 
 [🚀 Live Demo (Click Here!)](https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/) **Only accessible while API KEY exists**
  
