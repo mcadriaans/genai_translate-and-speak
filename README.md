@@ -11,9 +11,6 @@
 
 
 
-
-
-
 [🚀 Live Demo (Click Here!)](https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/) **Only accessible while API KEY exists**
  
 Translate English text into dozens of languages and hear it spoken aloud — all in one smooth, easy-to-use web app with audio download included.
@@ -25,7 +22,7 @@ Simply input your English text (or upload a file!), choose your target language,
   
 ## ✨ Features
 
-- Translate English text into 40+ languages  
+- Translate English text into 20+ languages  
 - Generate spoken audio using gTTS  
 - OCR support for PDF, images, and scanned documents  
 - Downloadable audio output  
