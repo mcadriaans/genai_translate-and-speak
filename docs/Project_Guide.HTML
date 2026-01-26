@@ -13,4 +13,189 @@
     color: #333;
   }
   h1, h2, h3 {
-    color
+    color: #444;
+    margin-top: 2rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  figure {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f7f7f7;
+    border-left: 4px solid #ccc;
+  }
+  figcaption {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  code {
+    background: #eee;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Multilingual Translator & Text-to-Speech Application for English Input</h1>
+
+<p><strong>GitHub repo:</strong> https://github.com/mcadriaans/genai_translate-and-speak</p>
+<p><strong>Live Demo:</strong> Google Gemini Translator & Text-to-Speech</p>
+
+<h2>Introduction</h2>
+<p>
+This documentation provides an overview of the project, including goals, architecture, and implementation details. 
+It covers the full development lifecycle from design and testing to deployment on Streamlit Community Cloud, 
+highlighting key challenges and the solutions used to address them.
+</p>
+
+<h2>1. Project Overview</h2>
+<p>
+This web application translates English text into multiple languages and converts translated text into speech. 
+It uses Streamlit for the interface, Google’s Gemini API for translation, and gTTS for audio generation. 
+Users can type text or upload files (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG) and receive translated text and downloadable audio.
+</p>
+
+<figure>
+  <figcaption>Figure 1: Application Workflow</figcaption>
+  User Input → File/Text Upload → Text Extraction → Translation (Gemini API) → Text-to-Speech (gTTS) → Audio Output
+</figure>
+
+<h2>2. Design Decision: English-Only Input</h2>
+<p>
+The system restricts input to English to reduce complexity, avoid unreliable language detection, 
+and ensure consistent translation quality. Handling arbitrary input languages would require extensive exception handling 
+and introduce unpredictable behavior.
+</p>
+
+<h2>3. Technology Stack</h2>
+
+<table>
+<tr><th>Category</th><th>Tool/Library</th><th>Description</th></tr>
+<tr><td>Web Framework</td><td>Streamlit</td><td>Interactive UI and deployment</td></tr>
+<tr><td>AI / Translation</td><td>Google Generative AI</td><td>Gemini 1.5 Flash API</td></tr>
+<tr><td>Text-to-Speech</td><td>gTTS</td><td>Generates MP3 audio</td></tr>
+<tr><td>File Handling & OCR</td><td>PyPDF2, pdf2image, easyocr</td><td>Extracts text from documents</td></tr>
+<tr><td>Data Processing</td><td>pandas, openpyxl</td><td>Reads CSV/Excel</td></tr>
+<tr><td>Environment</td><td>python-dotenv</td><td>Loads API keys</td></tr>
+<tr><td>Language Detection</td><td>langdetect</td><td>Validates English input</td></tr>
+<tr><td>Temp Files</td><td>tempfile</td><td>Manages temporary storage</td></tr>
+</table>
+
+<h2>4. Setup Instructions</h2>
+
+<h3>4.1 Prerequisites</h3>
+<ul>
+  <li>Python 3.10</li>
+  <li>pip</li>
+  <li>Poppler utilities (for OCR PDF conversion)</li>
+</ul>
+
+<h3>4.2 Clone the Repository</h3>
+<pre><code>git clone https://github.com/mcadriaans/translate-and-speak.git</code></pre>
+
+<h3>4.3 Create and Activate Virtual Environment</h3>
+<pre><code>python -m venv venv
+.\venv\Scripts\Activate.ps1</code></pre>
+
+<h3>4.4 Install Dependencies</h3>
+<pre><code>pip install -r requirements.txt</code></pre>
+
+<h3>4.5 Configure Gemini API Key</h3>
+<pre><code>GOOGLE_API_KEY=your_api_key_here</code></pre>
+
+<h3>4.6 Launch the Application</h3>
+<pre><code>streamlit run translator_speak_app.py</code></pre>
+
+<h2>5. Key Features</h2>
+
+<h3>5.1 Interface</h3>
+<p>Clean, responsive layout with language dropdown.</p>
+
+<h3>5.2 Dual Input Options</h3>
+<ul>
+  <li>Text box</li>
+  <li>File upload (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG)</li>
+</ul>
+
+<h3>5.3 Smart File Parsing</h3>
+<figure>
+  <figcaption>Figure 2: Smart Parsing Workflow</figcaption>
+  Input → Validation → Supported File? → Extract Text → OCR Fallback → Translate & Speak
+</figure>
+
+<h3>5.4 Translation</h3>
+<p>20+ languages supported via Gemini API.</p>
+
+<h3>5.5 Text-to-Speech</h3>
+<p>Generates MP3 audio with playback and download.</p>
+
+<h3>5.6 Error Handling</h3>
+<p>Clear messages for OCR issues, API limits, unsupported languages, and more.</p>
+
+<h2>6. Project Structure</h2>
+
+<figure>
+  <figcaption>Repository Structure</figcaption>
+  translate-and-speak/ → assets/, sample_files/, ml_models/, utils/, app, docs
+</figure>
+
+<h2>7. Deployment to Streamlit Cloud</h2>
+<p>
+Streamlit Cloud enables fast, free deployment with GitHub integration and secure secrets management.
+</p>
+
+<h3>7.2 Deployment Steps</h3>
+<ul>
+  <li>Select repo and branch</li>
+  <li>Set main file path</li>
+  <li>Add API key to Secrets</li>
+  <li>Select Python 3.10</li>
+</ul>
+
+<h2>8. Testing & Debugging</h2>
+<p>
+Extensive testing across file types, OCR behavior, encoding issues, and API limits.
+</p>
+
+<h2>9. Limitations</h2>
+<ul>
+  <li>gTTS lacks support for some languages</li>
+  <li>200MB upload limit</li>
+  <li>No real-time preview</li>
+  <li>Literal translations in some cases</li>
+</ul>
+
+<h2>10. Notable Challenges</h2>
+<ul>
+  <li>OCR reliability</li>
+  <li>API rate limits</li>
+  <li>No GPU on Streamlit Cloud</li>
+</ul>
+
+<h2>11. Future Enhancements</h2>
+<ul>
+  <li>Support more file types</li>
+  <li>Batch processing</li>
+  <li>Voice customization</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>
+This project demonstrates the power of generative AI in building multilingual tools. 
+It provides a strong foundation for future expansion and refinement.
+</p>
+
+</body>
+</html>
