@@ -42,160 +42,255 @@
     background: #eee;
     padding: 2px 4px;
     border-radius: 4px;
+    font-size: 1.1rem;
+  }
+  .hero-title {
+    font-size: 3rem;
+    margin-top: 1rem;
   }
 </style>
 </head>
 
 <body>
 
-<h1>Multilingual Translator & Text-to-Speech Application for English Input</h1>
+<div class="hero-title">Multilingual Translator & Text-to-Speech Application for English Input</div>
+<div style="display:flex; justify-content:center;"> <img src="assets/banner.png" alt="Banner"> </div>
 
-<p><strong>GitHub repo:</strong> https://github.com/mcadriaans/genai_translate-and-speak</p>
-<p><strong>Live Demo:</strong> Google Gemini Translator & Text-to-Speech</p>
-
-<h2>Introduction</h2>
+<h1>Introduction</h1>
 <p>
 This documentation provides an overview of the project, including goals, architecture, and implementation details. 
 It covers the full development lifecycle from design and testing to deployment on Streamlit Community Cloud, 
 highlighting key challenges and the solutions used to address them.
 </p>
 
-<h2>1. Project Overview</h2>
+<h1>1. Project Overview</h1>
 <p>
 This web application translates English text into multiple languages and converts translated text into speech. 
 It uses Streamlit for the interface, Google’s Gemini API for translation, and gTTS for audio generation. 
 Users can type text or upload files (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG) and receive translated text and downloadable audio.
 </p>
 
-<figure>
-  <figcaption>Figure 1: Application Workflow</figcaption>
-  User Input → File/Text Upload → Text Extraction → Translation (Gemini API) → Text-to-Speech (gTTS) → Audio Output
-</figure>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig1.png" alt="App Workflow Diagram"> </div>
 
-<h2>2. Design Decision: English-Only Input</h2>
+<h1>2. Design Decision: English-Only Input</h1>
 <p>
 The system restricts input to English to reduce complexity, avoid unreliable language detection, 
 and ensure consistent translation quality. Handling arbitrary input languages would require extensive exception handling 
 and introduce unpredictable behavior.
 </p>
 
-<h2>3. Technology Stack</h2>
+<h1>3. Technology Stack</h1>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig2.png" alt="Technology Stack"> </div>
+<h1>4. Setup Instructions</h1>
 
-<table>
-<tr><th>Category</th><th>Tool/Library</th><th>Description</th></tr>
-<tr><td>Web Framework</td><td>Streamlit</td><td>Interactive UI and deployment</td></tr>
-<tr><td>AI / Translation</td><td>Google Generative AI</td><td>Gemini 1.5 Flash API</td></tr>
-<tr><td>Text-to-Speech</td><td>gTTS</td><td>Generates MP3 audio</td></tr>
-<tr><td>File Handling & OCR</td><td>PyPDF2, pdf2image, easyocr</td><td>Extracts text from documents</td></tr>
-<tr><td>Data Processing</td><td>pandas, openpyxl</td><td>Reads CSV/Excel</td></tr>
-<tr><td>Environment</td><td>python-dotenv</td><td>Loads API keys</td></tr>
-<tr><td>Language Detection</td><td>langdetect</td><td>Validates English input</td></tr>
-<tr><td>Temp Files</td><td>tempfile</td><td>Manages temporary storage</td></tr>
-</table>
-
-<h2>4. Setup Instructions</h2>
-
-<h3>4.1 Prerequisites</h3>
+<h2>4.1 Prerequisites</h2>
 <ul>
   <li>Python 3.10</li>
   <li>pip</li>
   <li>Poppler utilities (for OCR PDF conversion)</li>
 </ul>
 
-<h3>4.2 Clone the Repository</h3>
-<pre><code>git clone https://github.com/mcadriaans/translate-and-speak.git</code></pre>
+<h2>4.2 Clone the Repository</h2>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig3.png" alt="cli"> </div>
 
-<h3>4.3 Create and Activate Virtual Environment</h3>
-<pre><code>python -m venv venv
-.\venv\Scripts\Activate.ps1</code></pre>
+<h2>4.3 Create and Activate Virtual Environment</h2>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig4.png" alt="cli"> </div>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig5.png" alt="cli"> </div>
+<p>
+This will activate the virtual environment and we are now ready for development.
+</p>
 
-<h3>4.4 Install Dependencies</h3>
-<pre><code>pip install -r requirements.txt</code></pre>
+<h2>4.4 Install Dependencies</h2>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig6.png" alt="cli"> </div>
 
-<h3>4.5 Configure Gemini API Key</h3>
-<pre><code>GOOGLE_API_KEY=your_api_key_here</code></pre>
+<h2>4.5 Configure Gemini API Key</h2>
+<ol>
+  <li>Generate a key from <a href="https://aistudio.google.com">Google AI Studio.</a> and go to <b>Get API key</b></li>
+  <li>Create a file named . env in the root of your project directory (trans date —and— speak/).</li>
+  <li>Add your API key to this file in the format:</li>
+  <div style="display:flex; justify-content:center;"> <img src="assets/pg_fig7.png" alt="cli"> </div>
+  <li>The <code><font color=blue>python-dotenv</font></code> package will securely load this key into the application.</li>
+</ol>
 
-<h3>4.6 Launch the Application</h3>
-<pre><code>streamlit run translator_speak_app.py</code></pre>
+<h2>4.6 Launch the Application</h2>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig8.png" alt="cli"> </div>
+<p>
+Powershell will launch a local server and the default browser will open the application:
+</p>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig9.png" alt="cli"> </div>
 
-<h2>5. Key Features</h2>
+<h1>5. Key Features</h1>
+<h2>5.1 Elegant and Responsive Interface</h2>
+<ul>
+  <li>Custom styling with warm tones and an intuitive layout.</li>
+  <li>Sidebar featuring a <font color=darkcoral>Language Selection drop down menu</font> for choosing the target translation language.</li>
+</ul>
 
-<h3>5.1 Interface</h3>
-<p>Clean, responsive layout with language dropdown.</p>
-
-<h3>5.2 Dual Input Options</h3>
+<h2>5.2 Dual Input Options</h2>
 <ul>
   <li>Text box</li>
-  <li>File upload (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG)</li>
+  <li>File Upload : Supports dragging and dropping or browsing files in formats like PDF, TXT, CSV, XLSX, PNG, JPG, and JPEG for automatic text extraction and translation.</li>
 </ul>
 
-<h3>5.3 Smart File Parsing</h3>
-<figure>
-  <figcaption>Figure 2: Smart Parsing Workflow</figcaption>
-  Input → Validation → Supported File? → Extract Text → OCR Fallback → Translate & Speak
-</figure>
-
-<h3>5.4 Translation</h3>
-<p>20+ languages supported via Gemini API.</p>
-
-<h3>5.5 Text-to-Speech</h3>
-<p>Generates MP3 audio with playback and download.</p>
-
-<h3>5.6 Error Handling</h3>
-<p>Clear messages for OCR issues, API limits, unsupported languages, and more.</p>
-
-<h2>6. Project Structure</h2>
-
-<figure>
-  <figcaption>Repository Structure</figcaption>
-  translate-and-speak/ → assets/, sample_files/, ml_models/, utils/, app, docs
-</figure>
-
-<h2>7. Deployment to Streamlit Cloud</h2>
-<p>
-Streamlit Cloud enables fast, free deployment with GitHub integration and secure secrets management.
+<h2>5.3 Smart File Parsing</h2>
+<p>The application employs a robust text extraction pipeline to handle diverse input formats, intelligently determining the best method to retrieve content for translation. This includes direct text extraction from readable documents and an OCR fallback for image-based content.</p>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig10.png" alt="Smart Flow Parsing Workflow"> </div>
+<p>This workflow illustrates the sequence:
+<ol>
+  <li>User Input & Validation: The system first processes any direct text or uploaded file. It performs basic validation checks for empty input.</li>
+  <li>It then determines if the uploaded file's format (PDF, TXT, CSV, XLSX, PNG, JPG, JPEG) is supported. Unsupported files lead to an error.</li>
+  <li>For supported files, the system attempts to directly extract text (e.g., from text-based PDFs, TXT, CSV, XLSX).</li>
+  <li>If direct text extraction yields no content (e.g., image-only PDFs, pure image files), an OCR process is initiated using <code><font color=blue>easyocr</font></code> to convert visual text into readable data.</li>
+  <li>Once text is successfully extracted (either directly or via OCR), it proceeds to the translation and text-to-speech modules.</li>
 </p>
 
-<h3>7.2 Deployment Steps</h3>
+<h2>5.4 Multilingual Translation Powered by Gemini</h2>
 <ul>
-  <li>Select repo and branch</li>
-  <li>Set main file path</li>
-  <li>Add API key to Secrets</li>
-  <li>Select Python 3.10</li>
+  <li>Users can choose from over 20+ languages via a flag-enhanced dropdown menu.</li>
+  <li>Translates English text into selected language with high accuracy and natural phrasing leveraging <font color=darkslategray>Google's Gemini 1.5 Flash API.</font></li>
 </ul>
 
-<h2>8. Testing & Debugging</h2>
-<p>
-Extensive testing across file types, OCR behavior, encoding issues, and API limits.
+<h2>5.5 Instant Text-to-Speech</h2>
+<ul>
+<li>Translated text can be heard spoken aloud using realistic voice synthesis powered by gTTS.</li>
+<li>Includes a built-in audio playback bar and a <b>Download Audio button</b> for saving the.mp3 file.</li>
+</ul>
+
+<h2>5.6 Robust Error Handling and User Feedback</h2>
+<p>In this user-facing application which involves file uploads, OCR, translation, and audio generation, clear communication is key. Streamlit's built-in messaging functions therefore play a vital role in guiding users, managing expectations, and gracefully handling errors.
+Here's an overview of how the application leverages these messages to foster a seamless and reliable user experience while encouraging confidence and ease of interaction:
+</p>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig11.png" alt="cli"> </div>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig12.png" alt="cli"> </div>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig13.png" alt="cli"> </div>
+<h1>6. Project Structure</h1>
+<p>The project appears as follows in the dedicated Github remote repository:
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig15.png" alt="cli"> </div>
+<p>At its core is a streamlit-based application that manages user interaction, file uploads, text extraction, translation and speech synthesis. There are sample test documents in various formats which can be used to test the application's OCR and translation capabilities.</p>
+
+<p>A key component of the system is the pre-trained machine learning models housed in the m1 mode1s/easyocr directory. There are two models:
+<ul>
+  <li><code><font color=blue>craf-t_m1t_25k.pth</font></code> : responsible for text detection, identifying regions within images that contain text using the CRAFT (Character Region Awareness for Text detection) algorithm.</li>
+  <li><code><font color=blue>eng11sh_g2.pth</font></code>: once text regions have been detected, this model performs text recognition. It interprets the characters within the text regions and is specifically optimized for English language input.</li>
+</ul>
+The supporting script l11e pa rser . py is stored in the utils folder and will ensure that the input text strings/documents are properly processed before translation.
+
+Configuration files like requ1rement s . txt  and r unt1me . txt  define the Python environment and dependencies, packages . txt  lists system-level dependencies that need to be installed on the deployment platform and documentation files provide guidance for setup and usage.
 </p>
 
-<h2>9. Limitations</h2>
-<ul>
-  <li>gTTS lacks support for some languages</li>
-  <li>200MB upload limit</li>
-  <li>No real-time preview</li>
-  <li>Literal translations in some cases</li>
-</ul>
 
-<h2>10. Notable Challenges</h2>
-<ul>
-  <li>OCR reliability</li>
-  <li>API rate limits</li>
-  <li>No GPU on Streamlit Cloud</li>
-</ul>
-
-<h2>11. Future Enhancements</h2>
-<ul>
-  <li>Support more file types</li>
-  <li>Batch processing</li>
-  <li>Voice customization</li>
-</ul>
-
-<h2>Conclusion</h2>
+<h1>7. Deployment to Streamlit Cloud</h1>
 <p>
-This project demonstrates the power of generative AI in building multilingual tools. 
-It provides a strong foundation for future expansion and refinement.
+This lightweight application was built with Streamlit and the repository is public, allowing for easy deployment on Streamlit Community Cloud.
+</p>
+<h2>7.1	Key Benefits of Streamlit Community Cloud</h2>
+<ul>
+  <li>The application can be deployed at no cost.</li>
+  <li>The deployment is very fast. We simply connect the GitHub repo and click Deploy.</li>
+  <li>Since the application is tied to GitHub it makes for easier collaboration with others.</li>
+  <li>Real-time updates as updates made to the code in GitHub are instantly reflected in the cloud.</li>
+  <li>Streamlit Community Cloud allows users to safely store API Keys.</li>
+</ul>
+
+<h2>7.2 Configuration and Launch</h2>
+First we navigate to the <a href="https://share.streamlit.io/">Streamlit sign‑in page</a> and log in with a GitHub account.
+<h3>7.2.1 Configure Deployment Settings</h3>
+<p>
+Click the “New application” button to access the “Deploy an application” dialog box. 
+Select the GitHub repository that contains the codebase, branch for deployment( typically main) and then specify the path to the main script.
+</p>
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig16.png" alt="Streamlit Cloud Deployment Config"> </div>
+<p>
+Streamlit Community Cloud does not directly support .env files for security reasons. Instead, environment variables (such as API Keys) can be securely stored using Streamlit Secrets.
+From the deployed application navigate to “Manage application” (gear icon bottom right) then select “Secrets”. Now we can add the Google API key in TOML format.
 </p>
 
+<div style="display:flex; justify-content:center;"> <img src="assets/pg_fig17.png" alt="Streamlit Cloud Deployment Config"> </div>
+
+
+<h1>8. Testing & Debugging</h1>
+<h2>8.1 Local Deployment Testing</h2>
+<p>
+Executed a series of test cases using the various allowable file formats : PDF, TXT, CSV, XLSX, PNG, JPG and JPEG, to verify the accuracy of the parsing logic and robustness of the application. 
+Key findings and resolutions from these tests include:
+<h3>8.1.1 OCR Library Deployment Challenges</h3>
+<p>
+Initially, pytesseract (Python wrapper for the Tesseract OCR engine) was used for OCR local deployment. However, when attempting to deploy to the Streamlit Community Cloud , the application consistently failed to extract and subsequently translate text from documents that require OCR processing.
+<ul>
+ <li><b>Root Cause</b>: The <code><font color=blue>pytesseract</font></code> library depends on the external Tesseract OCR engine, which poses compatibility challenges within Streamlit Community Cloud's containerized environment—an environment that restricts the installation of native binaries. As a result, deployments frequently encountered issues where the Tesseract executable was either absent or improperly configured, leading to OCR failures during runtime.</li>
+ <li><b>Resolution</b>: The OCR system was refactored to use <code><font color=blue>easyocr</font></code>, resulting in improved reliability and seamless cloud deployment.</li>
+
+<h3>8.1.2 Image Upload Errors (File Pointer Issue)</h3>
+  ❌Observed Error: Encountered the error message: <font color=red><i>"No input detected. Please type something or upload a file"</i></font> even after successfully uploading image-based files, leading to confusion and failed translation attempts.
+<ul>
+ <li><b>Root Cause</b>: The file pointer wasn't consistently reset prior to reading the files, leading to an empty buffer and subsequently, no text being passed to the OCR engine.</li>
+ <li><b>Resolution</b>: Implemented <code>uploaded_file.seek(0)</code> in <font color=purple>file_parser.py</font> to explicitly reset the file pointer before any read operation on uploaded images, ensuring all content is captured.</li>
+</ul>
+
+<h3>8.1.3 Text File Encoding Issue</h3>
+<p>
+A UnicodeDecodeError (specifically UnicodeDecodeError: ’utf-8’ codec can't decode byte 0xb3 in position 622: invalid stad byt  was encountered when attempting to decode content from certain .txt uploaded files . This prevented successful text extraction and subsequent translation for those specific files.
+<ul>
+ <li><b>Root Cause</b>: The application's decoding logic for .txt files explicitly tried to interpret content using “utf-8“ encoding. However, some .txt files were actually encoded using a
+ different character set causing the operation to fail when it encountered unfamiliar characters.</li>
+ <li><b>Resolution</b>: The text decoding strategy in <font color=purple>file_parser.py</font> for .txt files was updated. Instead of a strict "utf-8" decode, it now uses "latin1" (ISO-8859-1) encoding. latin1 is a more permissive encoding that can successfully decode any single byte sequence without throwing an error, significantly improving compatibility with a wider range of .txt files, particularly those originating from older systems or different regional defaults.</li>
+</ul>
+<p>
+
+<h3>8.1.4 Tested Edge Cases for Error Handling</h3>
+<p>
+The following scenarios were specifically tested to confirm the application's robust error handling as designed, verifying that the appropriate user feedback messages (as detailed in ›6 Robust Error Handling and User Feedb	 are displayed:
+<ul>
+ <li><b>Empty Input</b>: Verified that the application correctly prevents processing when no text is entered or extracted from an uploaded file.</li>
+ <li><b>Non-English Input</b>: Confirmed that the application accurately detects non-English input and prompts the user to provide English text for translation.</li>
+ <li><b>API Quota Exhaustion</b>: During testing Gemini API quota was exceeded and the application gracefully handles this by displaying an informative error message.</li>
+ <li><b>Unsupported Languages for gTTS</b>: Verified that for target languages where gTTS lacks speech synthesis support, the application correctly omits audio generation and notifies the user of this limitation.</li>
+</ul>
+</p>
+
+<h2>8.2	Streamlit Cloud Deployment Challenges & Solutions</h2>
+<p>
+We experienced deployment timeouts on Streamlit Cloud primarily due to the size of the EasyOCR models.
+<ul>
+ <li><b>🧩 Challenge</b>: When <code>easyocr.Reader</code> initializes, it attempts to download large models (hundreds of MBs) from the internet if not found locally. Streamlit Cloud's free tier has a strict startup timeout limit (typically a few minutes). The model download time often exceeded this limit, causing deployment failures.</li>
+<li><b>🪄 Solution</b>: We addressed this by embedding the EasyOCR models directly into the Git repository via the directory <code><font color=darkred>m1_mode1s/easyocr</font></code></li>
+</ul>
+<b>How it Works</b>: When the Streamlit Community Cloud clones the repository, these model files are already present on the server. By configuring <code>easyocr.Reader</code>  to load models from the local model storage directory and combining it with Streamlit's
+<code>@st.cache resource</code> decorator, the time-consuming network download is completely bypassed. This ensures the (still memory-intensive) model loading operation happens only once upon application deployment, significantly improving startup efficiency and reliability on the deployment platform.
+ 
+
+
+<h1>9. Limitations</h1>
+<ul>
+  <li><b>gTTS Language Support</b> : For example, although the Gemini API successfully translated English into Zulu(another language widely spoken in South Africa); the library was unable to generate audio output for the translated text.</li>
+  <li><b>File Size Constraints</b> : Maximum upload size is 200MB. This is ideal for or formats but could be limiting if users upload large image-based or media rich scans
+or multipage documents.</li>
+  <li><b>No Real-Time Preview</b>: Users must wait for translation and audio generation before seeing results.</li>
+  <li><b>Translation Accuracy in Gemini 1.5 Flash</b>: The multimodal language model is known to be optimized for responsiveness and cost efficiency, it can however sometimes, generate overly literal translations(directly translates word for word) that fail to adequately capture idiomatic nuance and compromise the comprehensibility of the translation.</li>
+  <li><b>No Voice Customization</b>: gTTS does not support pitch, speed or voice selection.</li>
+</ul>
+
+
+<h1>10. Notable Challenges</h1>
+<ul>
+  <li>File Parsing : Handling diverse file formats and extracting clean text</li>
+  <li>Image OCR Reliability: The application can occasionally encounter inconsistent text extraction from image files (.png, .jpeg, .jpg) due to factors such as image quality, font style, text orientation, compression artifacts, and contrast levels. This can lead to the error message: "No text found in the image". The error is displayed in the selected language.</li>
+  <li>API Rate Limits: Managing Gemini API usage within quota constraints.</li>
+  <li>Language Compatibility: Ensuring gTTS supports the selected translation language.</li>
+  <li>No GPU available in Streamlit Community Cloud: Most cloud-hosted Streamlit environments don't provide GPU access, this can tremendously slow down the application's performance.</li>
+</ul>
+
+<h1>11. Future Enhancements</h1>
+<ul>
+ <li>We can look to add support for additional file types (e.g., DOCX, RTF, HTML etc.)</li>
+ <li>Look to enable batch processing for multiple files.</li>
+ <li>Add a real-time translation preview before audio generation.</li>
+ <li>Store previous translations for reuse or review.</li>
+ <li>Offer voice customization options (pitch, speed, gender).</li>
+
+<h1>Conclusion</h1>
+<p>
+This project stands as a testament to the capabilities of Generative AI in creating impactful language tools. The application is well-positioned for continued growth and refinement, aiming to further expand its functionalities and reach.
+</p>
 </body>
 </html>
