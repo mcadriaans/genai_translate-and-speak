@@ -1,210 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemini Translator & Text-to-Speech</title>
+  <meta charset="UTF-8">
+  <title>Google Gemini Translator & Text-to-Speech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background-color: #FFF8E7; 
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
       color: #333;
     }
 
     header {
-      background-color: #FF6F61; 
+      background-color: #FF6F61; /* Coral */
       color: white;
-      padding: 3rem 1rem;
-      text-align: center;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.4rem;
-      font-weight: 700;
+      font-size: 1.8em;
     }
 
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    .cta-button {
-      background-color: white;
-      color: black;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
+    nav a {
+      color: white;
+      margin-left: 20px;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5rem;
-      transition: 0.2s;
+      font-weight: 500;
     }
 
-    .cta-button:hover {
-      background-color: #FFE2DC;
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .header-image {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 30px;
     }
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 40px;
     }
 
     h2 {
       color: #FF6F61;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 15px;
     }
 
-    .feature-grid {
+    .card-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      list-style: none;
+      padding: 0;
     }
 
-    .feature-card {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    .card-list li {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
     }
 
-    .screenshot {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .card-list li:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .card-list a {
+      color: #007acc;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card-list a:hover {
+      text-decoration: underline;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #333;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    a.github-link {
-      color: #FF6F61;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a.github-link:hover {
-      text-decoration: underline;
-    }
-    .back-button {
-      background-color: #000; /* black */ 
-      color: #fff; /* white text */ 
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5rem;
-      transition: 0.2s;
-    }
-    .back-button:hover { 
-      background-color: #FFE2DC;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
   <header>
     <h1>🌍 Google Gemini Translator & Text‑to‑Speech</h1>
-    <p>Translate English text into 20+ languages and hear it spoken aloud — instantly.</p>
-
-    <a href="https://mcadriaans.github.io/" class="back-button">Back to Portfolio</a> 
-    <a class="cta-button" href="https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/" target="_blank">
-      🚀 Try the Live App
-    </a>
+    <nav>
+      <a href="#contents">Contents</a>
+      <a href="#about">About</a>
+      <a href="https://mcadriaans.github.io/">Portfolio</a>
+    </nav>
   </header>
 
-  <main>
+  <div class="container">
 
-    <!-- ABOUT SECTION -->
-    <section>
-      <h2>🌐 About This Project</h2>
+    <img src="assets/screenshot1.png" alt="App Screenshot" class="header-image">
+
+    <section id="intro">
       <p>
-        This application uses <strong>Google Gemini</strong> to translate English text into 23 supported languages, 
-        delivering clear, natural-sounding speech for every translation. It adapts to your workflow with flexible input options: type directly, 
-        upload a file, or extract text from images using built‑in OCR. The result is a smooth, accessible tool designed to make multilingual communication feel effortless and human.
+        This project showcases a multilingual translation and text‑to‑speech application built with Google Gemini, Streamlit, and OCR technology.
       </p>
-
-      <img src="assets/screenshot1.png" alt="App Screenshot" class="screenshot">
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section>
-      <h2>Key Features</h2>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>🔤 AI‑Powered Translation</h3>
-          <p>Powered by Google Gemini for accurate, context‑aware translations.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>🔊 Text‑to‑Speech</h3>
-          <p>Generate natural audio in multiple languages and download the MP3.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>📄 File Upload Support</h3>
-          <p>Translate text from PDF, TXT, CSV, XLSX, PNG, JPG, and JPEG files.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>🖼️ OCR Support</h3>
-          <p>Extract text from images using EasyOCR before translating.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECH STACK -->
-    <section>
-      <h2>Tech Stack</h2>
-      <ul>
-        <li>Google Gemini API</li>
-        <li>Streamlit</li>
-        <li>gTTS (Google Text‑to‑Speech)</li>
-        <li>EasyOCR</li>
-        <li>Python</li>
+    <section id="contents">
+      <h2>📁 Project Contents</h2>
+      <ul class="card-list">
+        <li><a href="README.html">📘 Project README</a></li>
+        <li><a href="Project_Guide.html">🛠️ Developer Guide</a></li>
+        <li><a href="https://github.com/mcadriaans/genai_translate-and-speak/blob/main/translator_speak_app.py">💻 Code Repository</a></li>
+        <li><a href="https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/" target="_blank">🚀 Live Demo</a></li>
       </ul>
     </section>
 
-    <!-- QUICK LINKS -->
-    <section>
-      <h2>Quick Links</h2>
-      <ul>
-        <li><a class="github-link" href="README.html">📘 Project README</a></li>
-        <li><a class="github-link" href="Project_Guide.html">🛠️ Developer Guide </a></li>
-        <li><a class="github-link" href="https://github.com/mcadriaans/genai_translate-and-speak/blob/main/translator_speak_app.py">💻 Code Repository</a></li>
-        <li><a class="github-link" href="https://genaitranslate-and-speak-5frsypnc9p7vm4xgk5xxcj.streamlit.app/" target="_blank">🚀 Live Demo</a></li>
-      </ul>
+    <section id="about">
+      <h2>ℹ️ About This Project</h2>
+      <p>
+        This application uses Google Gemini to translate English text into 23 languages and generate natural‑sounding speech.  
+        It supports typed input, file uploads, and OCR‑based text extraction from images, making it a flexible tool for multilingual communication.
+      </p>
     </section>
 
-  </main>
+    <a href="https://mcadriaans.github.io/" class="back-button">← Back to Portfolio</a>
+
+  </div>
 
   <footer>
-    Built with ❤️ using Google Gemini, Streamlit, and Python.
+    &copy; 2026 Michéle Adriaans · Built with Google Gemini, Streamlit & Python
   </footer>
 
 </body>
 </html>
-
